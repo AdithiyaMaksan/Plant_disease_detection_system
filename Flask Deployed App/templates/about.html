@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+
+{% extends 'base.html' %}
+
+{% block pagetitle %}About Us | Plant Care{% endblock pagetitle %}
+
+{% block body %}
+<div class="container py-5">
+    <!-- Header Section -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-4" style="background: linear-gradient(to right, var(--primary-gradient-start), var(--primary-gradient-end));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">About Our Project</h1>
+            <p class="lead" style="color: var(--text-light);">Meet the team behind the Plant Disease Detection system</p>
+            
+            <!-- University Logo in Card View -->
+            <div class="my-4">
+                <div class="glass-card mx-auto" style="max-width: 400px; padding: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)'">
+                    <div class="image-container mb-2" style="display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 12px;">
+                        <img src="{{ url_for('static', filename='images/lpu_logo.svg') }}" alt="Lovely Professional University Logo" class="img-fluid" style="max-width: 300px; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                    </div>
+                    <p class="small mt-2 mb-0" style="color: var(--text-light); opacity: 0.8;">Lovely Professional University</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="row mb-5">
+        <div class="col-12 text-center mb-4">
+            <h2 style="background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Our Team</h2>
+            <p class="lead" style="color: var(--text-light);">Section KC364</p>
+        </div>
+        
+        <!-- Team Member Cards -->
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="glass-card h-100 team-card">
+                <div class="team-doodle-top">
+                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30,50 Q50,30 70,50 T90,50" stroke="var(--accent-color)" fill="none" stroke-width="2" />
+                        <path d="M50,20 L55,30 L45,30 Z" fill="var(--accent-color-2)" />
+                    </svg>
+                </div>
+                <div class="text-center">
+                    <div class="team-avatar mb-3">
+                        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" fill="url(#logoGradient)" />
+                            <text x="50" y="60" text-anchor="middle" fill="#fff" style="font-size: 24px; font-weight: bold;">AA</text>
+                        </svg>
+                    </div>
+                    <h4>Arun A</h4>
+                    <p class="text-muted">ID: 12100310</p>
+                </div>
+                <div class="team-doodle-bottom">
+                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="5" fill="var(--accent-color)" />
+                        <circle cx="40" cy="20" r="5" fill="var(--accent-color-2)" />
+                        <circle cx="60" cy="20" r="5" fill="var(--accent-color)" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="glass-card h-100 team-card">
+                <div class="team-doodle-top">
+                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20,20 Q40,60 60,20 T100,20" stroke="var(--accent-color-2)" fill="none" stroke-width="2" />
+                        <path d="M50,70 L55,60 L45,60 Z" fill="var(--accent-color)" />
+                    </svg>
+                </div>
+                <div class="text-center">
+                    <div class="team-avatar mb-3">
+                        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" fill="url(#logoGradient)" />
+                            <text x="50" y="60" text-anchor="middle" fill="#fff" style="font-size: 24px; font-weight: bold;">AK</text>
+                        </svg>
+                    </div>
+                    <h4>Adithya K</h4>
+                    <p class="text-muted">ID: 12110638</p>
+                </div>
+                <div class="team-doodle-bottom">
+                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="10" width="10" height="10" fill="var(--accent-color)" />
+                        <rect x="30" y="10" width="10" height="10" fill="var(--accent-color-2)" />
+                        <rect x="50" y="10" width="10" height="10" fill="var(--accent-color)" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="glass-card h-100 team-card">
+                <div class="team-doodle-top">
+                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10,50 C30,20 70,80 90,50" stroke="var(--accent-color)" fill="none" stroke-width="2" />
+                        <circle cx="50" cy="50" r="5" fill="var(--accent-color-2)" />
+                    </svg>
+                </div>
+                <div class="text-center">
+                    <div class="team-avatar mb-3">
+                        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" fill="url(#logoGradient)" />
+                            <text x="50" y="60" text-anchor="middle" fill="#fff" style="font-size: 24px; font-weight: bold;">MN</text>
+                        </svg>
+                    </div>
+                    <h4>Mohammed Nidadl KK</h4>
+                    <p class="text-muted">ID: 12110986</p>
+                </div>
+                <div class="team-doodle-bottom">
+                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10,10 L30,30 L10,30 Z" fill="var(--accent-color)" />
+                        <path d="M40,10 L60,30 L40,30 Z" fill="var(--accent-color-2)" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="glass-card h-100 team-card">
+                <div class="team-doodle-top">
+                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10,10 Q50,50 90,10" stroke="var(--accent-color-2)" fill="none" stroke-width="2" />
+                        <path d="M10,30 Q50,70 90,30" stroke="var(--accent-color)" fill="none" stroke-width="2" />
+                    </svg>
+                </div>
+                <div class="text-center">
+                    <div class="team-avatar mb-3">
+                        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" fill="url(#logoGradient)" />
+                            <text x="50" y="60" text-anchor="middle" fill="#fff" style="font-size: 24px; font-weight: bold;">AM</text>
+                        </svg>
+                    </div>
+                    <h4>Abdul Manaf</h4>
+                    <p class="text-muted">ID: 12110978</p>
+                </div>
+                <div class="team-doodle-bottom">
+                    <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="10" fill="none" stroke="var(--accent-color)" stroke-width="2" />
+                        <circle cx="50" cy="20" r="10" fill="none" stroke="var(--accent-color-2)" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Guidance Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="glass-card">
+                <div class="row">
+                    <div class="col-md-4 text-center mb-4 mb-md-0">
+                        <div class="guidance-avatar mb-3">
+                            <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="45" fill="url(#logoGradient)" />
+                                <text x="50" y="60" text-anchor="middle" fill="#fff" style="font-size: 24px; font-weight: bold;">SK</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h3 style="background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Under the Guidance of</h3>
+                        <h4>Dr. Sukhwinder Kaur</h4>
+                        <p class="text-muted">Professor</p>
+                        <p>School of Computer Science and Engineering</p>
+                        <p>Lovely Professional University, Phagwara</p>
+                        <div class="mt-3">
+                            <div class="guidance-doodle">
+                                <svg width="200" height="30" viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10,15 Q30,5 50,15 T90,15 T130,15 T170,15" stroke="var(--accent-color)" fill="none" stroke-width="2" />
+                                    <circle cx="50" cy="15" r="3" fill="var(--accent-color-2)" />
+                                    <circle cx="90" cy="15" r="3" fill="var(--accent-color)" />
+                                    <circle cx="130" cy="15" r="3" fill="var(--accent-color-2)" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project Description -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="glass-card">
+                <h3 class="text-center mb-4" style="background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">About the Project</h3>
+                <p>The Plant Disease Detection project is an AI-powered system designed to help farmers and gardeners identify plant diseases quickly and accurately. By leveraging deep learning techniques, our system can analyze images of plant leaves and identify various diseases affecting different plant species.</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="icon ion-ios-flask"></i>
+                            </div>
+                            <h4>Technologies Used</h4>
+                            <ul>
+                                <li>Deep Learning (CNN)</li>
+                                <li>Flask Web Framework</li>
+                                <li>PyTorch</li>
+                                <li>Bootstrap</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="icon ion-ios-lightbulb"></i>
+                            </div>
+                            <h4>Project Goals</h4>
+                            <ul>
+                                <li>Early disease detection</li>
+                                <li>Reduce crop losses</li>
+                                <li>Provide treatment recommendations</li>
+                                <li>Make technology accessible to farmers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-doodle text-center mt-4">
+                    <svg width="300" height="50" viewBox="0 0 300 50" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Plant doodle -->
+                        <path d="M50,40 C50,20 30,20 30,10 C30,5 35,5 40,10" stroke="var(--accent-color)" fill="none" stroke-width="1.5" />
+                        <path d="M50,40 C50,20 70,20 70,10 C70,5 65,5 60,10" stroke="var(--accent-color)" fill="none" stroke-width="1.5" />
+                        <path d="M50,40 L50,10" stroke="var(--accent-color)" fill="none" stroke-width="1.5" />
+                        <circle cx="50" cy="5" r="3" fill="var(--accent-color-2)" />
+                        
+                        <!-- Leaf doodle -->
+                        <path d="M150,40 C130,30 130,10 150,5 C170,10 170,30 150,40 Z" stroke="var(--accent-color)" fill="none" stroke-width="1.5" />
+                        <path d="M150,40 L150,45" stroke="var(--accent-color)" fill="none" stroke-width="1.5" />
+                        <path d="M150,5 L150,40" stroke="var(--accent-color)" fill="none" stroke-width="1" stroke-dasharray="2,2" />
+                        
+                        <!-- Computer doodle -->
+                        <rect x="230" y="15" width="40" height="30" rx="2" stroke="var(--accent-color)" fill="none" stroke-width="1.5" />
+                        <rect x="240" y="20" width="20" height="15" stroke="var(--accent-color-2)" fill="none" stroke-width="1.5" />
+                        <line x1="230" y1="50" x2="270" y2="50" stroke="var(--accent-color)" stroke-width="1.5" />
+                        <line x1="245" y1="50" x2="255" y2="45" stroke="var(--accent-color)" stroke-width="1.5" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Team card styles */
+    .team-card {
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .team-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .team-avatar, .guidance-avatar {
+        display: inline-block;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .team-doodle-top {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        opacity: 0.7;
+    }
+    
+    .team-doodle-bottom {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        opacity: 0.7;
+    }
+    
+    .guidance-doodle {
+        opacity: 0.7;
+    }
+    
+    .project-doodle {
+        opacity: 0.8;
+    }
+    
+    /* Feature card enhancements */
+    .feature-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--glass-shadow);
+        padding: 1.5rem;
+        height: 100%;
+        transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--accent-color);
+    }
+</style>
+{% endblock body %}
+</html>

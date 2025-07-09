@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Disease Detection
+{% endblock pagetitle %}
+
+{% block body %}
+<!-- Polygon decorations -->
+<div class="polygon-decoration" style="top: 10%; right: 15%;"></div>
+<div class="polygon-decoration" style="bottom: 20%; left: 5%;"></div>
+
+<!-- Plant doodles -->
+<img src="{{ url_for('static', filename='plant-doodle-1.svg') }}" class="plant-doodle plant-doodle-1" style="top: 20%; left: 5%;" alt="">
+<img src="{{ url_for('static', filename='plant-doodle-2.svg') }}" class="plant-doodle plant-doodle-2" style="bottom: 10%; right: 5%;" alt="">
+
+<div class="container container-modern">
+    <!-- Page Header -->
+    <div class="row mb-5 text-center">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="display-4" style="padding-top: 2%;font-weight: 600;background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Disease Detection Tool</h1>
+            <p class="lead" style="font-weight: 500;color: var(--text-light);">Upload a plant image to detect diseases and get treatment recommendations</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- Information Card -->
+        <div class="col-md-4 mb-4">
+            <div class="glass-card h-100">
+                <h4 class="mb-3 text-center" style="background: linear-gradient(to right, var(--secondary-gradient-start), var(--secondary-gradient-end));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Why Detect Plant Diseases?</h4>
+                <p>Plant diseases significantly impact growth and crop yields. Early detection is crucial for:</p>
+                <ul>
+                    <li>Preventing spread to healthy plants</li>
+                    <li>Reducing economic losses</li>
+                    <li>Improving plant health and productivity</li>
+                    <li>Optimizing treatment strategies</li>
+                </ul>
+                <p class="mt-3">Our AI-powered tool can identify diseases across multiple plant species with high accuracy.</p>
+            </div>
+        </div>
+        
+        <!-- Upload Card -->
+        <div class="col-md-8 mb-4">
+            <div class="glass-card h-100">
+                <h4 class="mb-4 text-center" style="background: linear-gradient(to right, var(--primary-gradient-start), var(--primary-gradient-end));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Upload Plant Image</h4>
+                
+                <form action="/submit" method="post" enctype="multipart/form-data">
+                    <div class="file-upload-container mb-4">
+                        <div class="text-center">
+                            <i class="icon ion-ios-cloud-upload" style="font-size: 3rem; color: var(--accent-color);"></i>
+                            <h5 class="mt-3 mb-3">Drag & Drop or Click to Upload</h5>
+                            <p>Upload a clear image of the affected plant part</p>
+                            <input type="file" name="image" id="actual-btn" hidden required/>
+                            <label for="actual-btn" class="file-upload-label">
+                                Choose File
+                            </label>
+                            <span id="file-chosen" class="mt-2 d-block">No file chosen</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary-modern btn-lg">
+                            <i class="icon ion-ios-search mr-2"></i> Detect Disease
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tips Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="glass-card">
+                <h4 class="mb-3 text-center" style="background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Tips for Better Results</h4>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon" style="width: 40px; height: 40px; font-size: 1.2rem; margin-right: 15px; margin-bottom: 0;">
+                                <i class="icon ion-ios-sunny"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Good Lighting</h6>
+                                <p class="mb-0 small">Take photos in natural daylight</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon" style="width: 40px; height: 40px; font-size: 1.2rem; margin-right: 15px; margin-bottom: 0;">
+                                <i class="icon ion-ios-eye"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Clear Focus</h6>
+                                <p class="mb-0 small">Ensure the affected area is clearly visible</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon" style="width: 40px; height: 40px; font-size: 1.2rem; margin-right: 15px; margin-bottom: 0;">
+                                <i class="icon ion-ios-crop"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Close-up Shot</h6>
+                                <p class="mb-0 small">Capture close-ups of the symptoms</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Display selected filename
+    const actualBtn = document.getElementById('actual-btn');
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function(){
+        if(this.files && this.files[0]){
+            fileChosen.textContent = this.files[0].name;
+            fileChosen.style.color = 'var(--accent-color)';
+        } else {
+            fileChosen.textContent = 'No file chosen';
+            fileChosen.style.color = '';
+        }
+    });
+    
+    // Add drag and drop functionality
+    const dropArea = document.querySelector('.file-upload-container');
+    
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+    });
+    
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, highlight, false);
+    });
+    
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, unhighlight, false);
+    });
+    
+    function highlight() {
+        dropArea.style.borderColor = 'var(--accent-color)';
+        dropArea.style.backgroundColor = 'rgba(0, 242, 254, 0.05)';
+    }
+    
+    function unhighlight() {
+        dropArea.style.borderColor = '';
+        dropArea.style.backgroundColor = '';
+    }
+    
+    dropArea.addEventListener('drop', handleDrop, false);
+    
+    function handleDrop(e) {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        
+        if(files && files[0]) {
+            actualBtn.files = files;
+            fileChosen.textContent = files[0].name;
+            fileChosen.style.color = 'var(--accent-color)';
+        }
+    }
+</script>
+{% endblock body %}

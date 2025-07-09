@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150">
+  <!-- LPU Logo -->
+  <g>
+    <!-- Circle with sunburst design -->
+    <circle cx="75" cy="75" r="70" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+    <!-- Sunburst rays -->
+    <path d="M75,75 L120,30 M75,75 L130,45 M75,75 L135,65 M75,75 L130,85 M75,75 L115,115 M75,75 L90,125 M75,75 L60,125 M75,75 L35,115 M75,75 L20,85 M75,75 L15,65 M75,75 L20,45 M75,75 L30,30" stroke="#FF8C00" stroke-width="4"/>
+    <!-- Inner circle -->
+    <circle cx="75" cy="75" r="25" fill="#FF8C00"/>
+  </g>
+  
+  <!-- LPU Text -->
+  <g transform="translate(160, 40)">
+    <!-- L -->
+    <rect x="0" y="0" width="50" height="50" fill="#FF8C00"/>
+    <text x="25" y="35" font-family="Arial, sans-serif" font-size="35" font-weight="bold" fill="white" text-anchor="middle">L</text>
+    <text x="25" y="70" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">OVELY</text>
+    
+    <!-- P -->
+    <rect x="80" y="0" width="50" height="50" fill="#FF8C00"/>
+    <text x="105" y="35" font-family="Arial, sans-serif" font-size="35" font-weight="bold" fill="white" text-anchor="middle">P</text>
+    <text x="105" y="70" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">ROFESSIONAL</text>
+    
+    <!-- U -->
+    <rect x="160" y="0" width="50" height="50" fill="#FF8C00"/>
+    <text x="185" y="35" font-family="Arial, sans-serif" font-size="35" font-weight="bold" fill="white" text-anchor="middle">U</text>
+    <text x="185" y="70" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">NIVERSITY</text>
+  </g>
+  
+  <!-- Tagline -->
+  <text x="250" y="130" font-family="Arial, sans-serif" font-style="italic" font-size="14" fill="#333333" text-anchor="middle">Transforming Education Transforming India</text>
+</svg>

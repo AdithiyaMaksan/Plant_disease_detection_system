@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Plant Disease Detection
+{% endblock pagetitle %}
+{% block body %}
+<!-- Polygon decorations -->
+<div class="polygon-decoration" style="top: 20%; left: 5%;"></div>
+<div class="polygon-decoration" style="bottom: 30%; right: 10%;"></div>
+
+<!-- Plant doodles -->
+<img src="{{ url_for('static', filename='plant-doodle-1.svg') }}" class="plant-doodle plant-doodle-1" style="top: 15%; right: 10%;" alt="">
+<img src="{{ url_for('static', filename='plant-doodle-2.svg') }}" class="plant-doodle plant-doodle-2" style="bottom: 20%; left: 8%;" alt="">
+
+<!-- Mobile notice -->
+<div class='mobile p-5'>
+  <div class="row mb-5 text-center">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color:#00f2fe;"><b>Note</b></h1>
+      <p class="lead" style="font-weight: 500;color: white;">Please Open This Site On Laptop/PC Screen Only</p>
+      <p class="lead" style="font-weight: 500;color: white;">Thank You</p>    
+    </div>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<div class="hero-section laptop">
+  <div class="row align-items-center">
+    <div class="col-lg-6 hero-content">
+      <h1>Protect Your Plants With AI</h1>
+      <p>Our advanced plant disease detection system uses cutting-edge AI to identify and diagnose plant diseases instantly. Upload a photo and get accurate results and treatment recommendations.</p>
+      <div class="d-flex gap-3">
+        <a href="/index" class="btn btn-primary-modern">Detect Disease</a>
+        <a href="/market" class="btn btn-secondary-modern">Plant Care Products</a>
+      </div>
+    </div>
+    <div class="col-lg-6 hero-image">
+      <div class="glass-card animated-plant-container">
+        <div class="animated-plant">
+          <svg width="100%" height="100%" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+            <path class="plant-stem" d="M400 500 Q 400 350 450 300 Q 500 250 480 150" stroke="#38ef7d" stroke-width="8" fill="none" />
+            <path class="plant-stem" d="M400 500 Q 400 400 350 350 Q 300 300 320 200" stroke="#38ef7d" stroke-width="8" fill="none" />
+            <path class="plant-leaf" d="M450 300 Q 500 280 550 300 Q 500 350 450 300" fill="#11998e" />
+            <path class="plant-leaf" d="M350 350 Q 300 330 250 350 Q 300 400 350 350" fill="#11998e" />
+            <path class="plant-leaf" d="M480 150 Q 530 130 580 150 Q 530 200 480 150" fill="#11998e" />
+            <path class="plant-leaf" d="M320 200 Q 270 180 220 200 Q 270 250 320 200" fill="#11998e" />
+            <circle class="plant-flower" cx="480" cy="150" r="20" fill="#4facfe" />
+            <circle class="plant-flower" cx="320" cy="200" r="20" fill="#4facfe" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="row laptop mt-5 pt-5">
+  <div class="col-12 text-center mb-5">
+    <h2 style="background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">How Our Plant Disease Detection Works</h2>
+    <p class="lead" style="color: var(--text-light);">Simple, fast, and accurate plant disease diagnosis</p>
+  </div>
+  
+  <div class="col-md-4 mb-4">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="icon ion-ios-camera"></i>
+      </div>
+      <h4>Upload Photo</h4>
+      <p>Take a clear photo of your plant's affected area and upload it to our system.</p>
+    </div>
+  </div>
+  
+  <div class="col-md-4 mb-4">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="icon ion-ios-analytics"></i>
+      </div>
+      <h4>AI Analysis</h4>
+      <p>Our advanced AI model analyzes the image to identify the disease with high accuracy.</p>
+    </div>
+  </div>
+  
+  <div class="col-md-4 mb-4">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="icon ion-ios-medkit"></i>
+      </div>
+      <h4>Get Treatment</h4>
+      <p>Receive detailed diagnosis and personalized treatment recommendations.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Information Section -->
+<div class="row laptop mt-5">
+    <div class="col-md-6 mb-4">
+        <div class="glass-card h-100">
+            <h3 class="text-center mb-4" style="background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Supported Plants</h3>
+            <p>Our plant disease detection system uses advanced machine learning algorithms to identify various plant diseases from images. Simply upload a photo of your plant, and our AI will analyze it to detect any diseases.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li>Apple</li>
+                        <li>Cherry</li>
+                        <li>Corn</li>
+                        <li>Grape</li>
+                        <li>Peach</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>Pepper</li>
+                        <li>Potato</li>
+                        <li>Strawberry</li>
+                        <li>Tomato</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="glass-card h-100">
+            <h3 class="text-center mb-4" style="background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Benefits</h3>
+            <ul>
+                <li><strong>Early Detection:</strong> Identify plant diseases before they spread</li>
+                <li><strong>Accurate Diagnosis:</strong> Our AI provides precise identification of plant diseases</li>
+                <li><strong>Treatment Recommendations:</strong> Get specific advice on how to treat the identified disease</li>
+                <li><strong>Save Time & Money:</strong> Avoid costly misdiagnosis and unnecessary treatments</li>
+                <li><strong>Improve Crop Yield:</strong> Maintain healthier plants and increase productivity</li>
+                <li><strong>User-Friendly:</strong> Simple interface that anyone can use without specialized knowledge</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="row laptop mt-5 mb-5">
+    <div class="col-12 text-center">
+        <div class="glass-card">
+            <h3 style="background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Ready to protect your plants?</h3>
+            <p class="lead mb-4">Start using our plant disease detection tool today and keep your plants healthy.</p>
+            <a href="/index" class="btn btn-primary-modern btn-lg">Get Started Now</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}

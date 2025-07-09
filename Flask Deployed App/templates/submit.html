@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+{{title}}
+{% endblock pagetitle %}
+{% block body %}
+
+<!-- Polygon decorations -->
+<div class="polygon-decoration" style="top: 10%; right: 15%;"></div>
+<div class="polygon-decoration" style="bottom: 20%; left: 5%;"></div>
+
+<!-- Plant doodles for decoration -->
+<img src="{{ url_for('static', filename='plant-doodle-1.svg') }}" class="plant-doodle plant-doodle-1" style="top: 15%; right: 8%;" alt="">
+<img src="{{ url_for('static', filename='plant-doodle-2.svg') }}" class="plant-doodle plant-doodle-2" style="bottom: 15%; left: 8%;" alt="">
+
+<div class="container container-modern">
+    <!-- Result header -->
+    <div class="row mb-5 text-center">
+      <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 2%;font-weight: 600;background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">{{title}}</h1>
+        <p class="lead" style="font-weight: 500;color: var(--text-light);"><strong>Prediction Accuracy: {{accuracy}}%</strong></p>
+      </div>
+    </div>
+    
+    <!-- Image display -->
+    <div class="row justify-content-center mb-4">
+      <!-- Uploaded leaf image -->
+      <div class="col-md-6 mb-4">
+        <div class="glass-card h-100 text-center" style="transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)'">
+          <h4 class="mb-3" style="background: linear-gradient(to right, var(--secondary-gradient-start), var(--secondary-gradient-end));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent; font-weight: 600;">Your Uploaded Leaf</h4>
+          <div class="image-container mb-3" style="height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 12px; background: rgba(255,255,255,0.05);">
+            <img src="/static/uploads/{{uploaded_image}}" class="img-fluid rounded" style="max-height: 280px; max-width: 90%; object-fit: contain; transition: transform 0.5s ease;" onerror="this.src='/static/plant-doodle-1.svg';" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          </div>
+          <p class="small" style="color: var(--text-light); opacity: 0.8;">Your uploaded image for analysis</p>
+        </div>
+      </div>
+      
+      <!-- Reference disease image -->
+      <div class="col-md-6 mb-4">
+        <div class="glass-card h-100 text-center" style="transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)'">
+          <h4 class="mb-3" style="background: linear-gradient(to right, var(--primary-gradient-start), var(--primary-gradient-end));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent; font-weight: 600;">Reference Disease Image</h4>
+          <div class="image-container mb-3" style="height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 12px; background: rgba(255,255,255,0.05);">
+            <img src="{{image_url}}" class="img-fluid rounded" style="max-height: 280px; max-width: 90%; object-fit: contain; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          </div>
+          <p class="small" style="color: var(--text-light); opacity: 0.8;">Reference image from online database</p>
+        </div>
+      </div>
+    </div>
+      
+    <!-- Description and supplement info -->
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="glass-card h-100" style="transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)'">
+          <h4 class="mb-3 text-center" style="background: linear-gradient(to right, var(--secondary-gradient-start), var(--secondary-gradient-end));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent; font-weight: 600;">
+            {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or
+            pred==24 or pred==25 or pred==28 or pred==38 %}
+            Tips to Grow Healthy Plants
+            {% else %}
+            Disease Description
+            {% endif %}
+          </h4>
+          <div class="content-box" style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.05);">
+            <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 0;">{{desc}}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 mb-4">
+        <div class="glass-card h-100" style="transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)'">
+          <h4 class="mb-3 text-center" style="background: linear-gradient(to right, var(--primary-gradient-start), var(--primary-gradient-end));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent; font-weight: 600;">
+            {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or
+            pred==24 or pred==25 or pred==28 or pred==38 %}
+            Benefits
+            {% else %}
+            Prevention & Treatment
+            {% endif %}
+          </h4>
+          <div class="content-box" style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.05);">
+            <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 0;">{{prevent}}</p>
+          </div>
+          
+          {% if pred!=3 and pred!=5 and pred!=7 and pred!=11 and pred!=15 and pred!=18 and pred!=20 and pred!=23 and
+          pred!=24 and pred!=25 and pred!=28 and pred!=38 %}
+          <div class="mt-4 text-center">
+            <a href="/market" class="btn btn-primary-modern" style="transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(0, 242, 254, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'">View Recommended Products</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Recommended Products Section -->
+    <div class="row mb-5">
+      <div class="col-12 mb-4">
+        <h3 class="text-center" style="font-weight: 600; background: linear-gradient(to right, var(--accent-color), var(--accent-color-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Recommended Products</h3>
+        <p class="text-center" style="color: var(--text-light);">These products are specifically recommended for your plant's condition</p>
+      </div>
+    </div>
+    
+    <div class="row mb-5">
+      <!-- Primary recommended product -->
+      <div class="col-md-4 mb-4">
+        <div class="glass-card h-100 text-center" style="transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)'">
+          <h4 class="mb-3" style="background: linear-gradient(to right, var(--primary-gradient-start), var(--primary-gradient-end));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent; font-weight: 600;">{{sname}}</h4>
+          <div class="image-container mb-3" style="height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 12px; background: rgba(255,255,255,0.05);">
+            <img src="{{simage}}" class="img-fluid rounded" style="max-height: 180px; max-width: 90%; object-fit: contain; transition: transform 0.5s ease;" onerror="this.src='/static/plant-doodle-1.svg';" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          </div>
+          <p class="small mb-3" style="color: var(--text-light); opacity: 0.8;">Primary recommended product for your plant</p>
+          <a href="{{buy_link}}" target="_blank" class="btn btn-primary-modern btn-sm" style="transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(0, 242, 254, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'">View Product</a>
+        </div>
+      </div>
+      
+      <!-- Additional recommended products from supplement_info -->
+      {% if pred > 0 %}
+      <div class="col-md-4 mb-4">
+        <div class="glass-card h-100 text-center" style="transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)'">
+          <h4 class="mb-3" style="background: linear-gradient(to right, var(--secondary-gradient-start), var(--secondary-gradient-end));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent; font-weight: 600;">Organic Alternative</h4>
+          <div class="image-container mb-3" style="height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 12px; background: rgba(255,255,255,0.05);">
+            <img src="https://m.media-amazon.com/images/I/71SHuBvTWJL._AC_UF1000,1000_QL80_.jpg" class="img-fluid rounded" style="max-height: 180px; max-width: 90%; object-fit: contain; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          </div>
+          <p class="small mb-3" style="color: var(--text-light); opacity: 0.8;">Organic plant care solution</p>
+          <a href="https://www.amazon.com/s?k=organic+plant+care" target="_blank" class="btn btn-primary-modern btn-sm" style="transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(0, 242, 254, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'">View Product</a>
+        </div>
+      </div>
+      {% endif %}
+      
+      <div class="col-md-4 mb-4">
+        <div class="glass-card h-100 text-center" style="transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--glass-shadow)'">
+          <h4 class="mb-3" style="background: linear-gradient(to right, var(--accent-color), var(--accent-color-2));-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent; font-weight: 600;">Plant Care Kit</h4>
+          <div class="image-container mb-3" style="height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 12px; background: rgba(255,255,255,0.05);">
+            <img src="https://m.media-amazon.com/images/I/71ry+KhU5yL._AC_UF1000,1000_QL80_.jpg" class="img-fluid rounded" style="max-height: 180px; max-width: 90%; object-fit: contain; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          </div>
+          <p class="small mb-3" style="color: var(--text-light); opacity: 0.8;">Complete plant care toolkit</p>
+          <a href="https://www.amazon.com/s?k=plant+care+kit" target="_blank" class="btn btn-primary-modern btn-sm" style="transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(0, 242, 254, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'">View Product</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Back button -->
+    <div class="row mb-5 mt-4">
+      <div class="col text-center">
+        <a href="/index" class="btn btn-outline-modern" style="transition: all 0.3s ease; font-weight: 500;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(255, 255, 255, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">Analyze Another Image</a>
+      </div>
+    </div>
+</div>
+
+{% endblock body %}

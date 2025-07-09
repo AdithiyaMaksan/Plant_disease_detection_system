@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Plant pot -->
+  <path d="M70 180 L130 180 L120 130 L80 130 Z" fill="#162033" stroke="#4facfe" stroke-width="2" />
+  
+  <!-- Main stem -->
+  <path d="M100 130 L100 70" stroke="#38ef7d" stroke-width="3" fill="none" stroke-linecap="round" />
+  
+  <!-- Branches -->
+  <path d="M100 110 L120 90" stroke="#38ef7d" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path d="M100 90 L80 70" stroke="#38ef7d" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path d="M100 70 L130 50" stroke="#38ef7d" stroke-width="2" fill="none" stroke-linecap="round" />
+  
+  <!-- Leaves -->
+  <path d="M120 90 C130 85, 140 85, 145 75 C135 80, 125 80, 120 90" fill="#11998e" stroke="#38ef7d" stroke-width="1.5" />
+  <path d="M80 70 C70 65, 60 65, 55 55 C65 60, 75 60, 80 70" fill="#11998e" stroke="#38ef7d" stroke-width="1.5" />
+  <path d="M130 50 C140 45, 150 45, 155 35 C145 40, 135 40, 130 50" fill="#11998e" stroke="#38ef7d" stroke-width="1.5" />
+  
+  <!-- Top leaf/flower -->
+  <circle cx="100" cy="50" r="15" fill="#6a11cb" opacity="0.7" />
+  <circle cx="100" cy="50" r="10" fill="#2575fc" opacity="0.8" />
+  <circle cx="100" cy="50" r="5" fill="#00f2fe" />
+  
+  <!-- Decorative elements -->
+  <circle cx="110" cy="100" r="3" fill="#4facfe" opacity="0.8" />
+  <circle cx="90" cy="80" r="2" fill="#00f2fe" opacity="0.8" />
+  <circle cx="115" cy="65" r="2" fill="#4facfe" opacity="0.8" />
+</svg>

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Contact Us
+{% endblock pagetitle %}
+
+{% block body %}
+
+<div class="row mb-5 text-center">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: #2c3e50;"><b>Contact Us</b></h1>
+        <p class="lead" style="font-weight: 500;color: #34495e;">Have questions about plant diseases? We're here to help!</p>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="p-5 bg-white shadow rounded-lg">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" style="background-color: #2c3e50;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="p-4 bg-white shadow rounded-lg">
+                <h3 class="text-center mb-4">Connect With Us</h3>
+                <div class="row text-center">
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex flex-column align-items-center">
+                            <i class="icon ion-email" style="font-size: 2rem; color: #2c3e50;"></i>
+                            <p class="mt-2">support@plantcare.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex flex-column align-items-center">
+                            <i class="icon ion-ios-telephone" style="font-size: 2rem; color: #2c3e50;"></i>
+                            <p class="mt-2">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex flex-column align-items-center">
+                            <i class="icon ion-location" style="font-size: 2rem; color: #2c3e50;"></i>
+                            <p class="mt-2">Plant Care Center</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
